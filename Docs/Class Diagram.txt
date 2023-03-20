@@ -1,0 +1,16 @@
+@startuml
+
+class User {
+-name
+-shakey
+}
+User -- SSS
+class SSS {
+-seckey
+-tshares
+-rshares
++verify()
++genshakey()
+}
+
+@enduml

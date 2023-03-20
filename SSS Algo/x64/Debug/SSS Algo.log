@@ -1,0 +1,3 @@
+﻿  main.cpp
+D:\FT42\Tasks\Task 3 SSS Algorithm\SSS Algo\main.cpp(125,13): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+  SSS Algo.vcxproj -> D:\FT42\Tasks\Task 3 SSS Algorithm\SSS Algo\x64\Debug\SSS Algo.exe

@@ -1,0 +1,53 @@
+@startuml
+
+actor Carl as car
+actor Phoebe as pho
+actor Alice as ali
+actor Bob as bob
+box Locker
+participant "Locker Interface" as loc
+participant "SSS System" as sss
+box end
+note across
+Alice, Bob, Carl and Phoebe are accountants of a company. They
+use a SSS locker system which requires any two of them to open it.
+They set a secret key to lock this locker.
+end note
+== Creating Keys ==
+car -> pho : Discussing secret key
+pho -> ali : Discussing secret key
+ali -> bob : Discussing secret key
+bob -> loc : Confirming secret key
+loc -> sss : Save secret key
+sss -> loc : Secret key saved
+note over loc
+Enter the number of total 
+shares and minimum number 
+of shares required to unlock 
+this vault
+end note
+bob -> loc : Providing the required details
+note over loc : Minimum shares required is 2
+loc -> sss : Generating shares of secret key
+sss -> loc : Shares of secret key generated
+loc -> bob : 1st share of secret key
+loc -> ali : 2st share of secret key
+loc -> pho : 3st share of secret key
+loc -> car : 4st share of secret key
+== Unlocking Locker ==
+note across
+Alice and Bob want to unlock locker to 
+access douments inside it
+end note
+ali -> loc : Alice enters her share
+bob -> loc : Bob enters his share
+loc -> sss : verifying shares entered
+sss -> loc : shares verified
+note over loc
+Shares are verified meaning secret key 
+calculated from the shares is correct. 
+Hence locker is unlocked by two users 
+instead of all four.
+end note
+
+@enduml
